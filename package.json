@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/1846689910/funny-react-app-archetype/issues"
   },
-  "homepage": "https://github.com/1846689910/funny-react-app-archetype#readme"
+  "homepage": "https://github.com/1846689910/funny-react-app-archetype#readme",
+  "dependencies": {
+    "shelljs": "^0.8.3"
+  }
 }

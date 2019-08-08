@@ -1,4 +1,5 @@
 const utils = require("./utils");
+const Fs = require("fs");
 
 function optionalRequire(path) {
   let pkg;
@@ -22,10 +23,24 @@ function parseEnv(env, defaultValue, envType = "string") {
   return val || defaultValue;
 }
 
+function ejectBabelRcClient(writePath){
+  const babelRc = require("../babel/babelrc-client");
+  const content = `module.exports = ${JSON.stringify(babelRc, null, 2)};`;
+  Fs.writeFileSync(writePath, content);
+}
+
+function ejectBabelRcServer(writePath){
+  const babelRc = require("../babel/babelrc-server");
+  const content = `module.exports = ${JSON.stringify(babelRc, null, 2)};`;
+  Fs.writeFileSync(writePath, content);
+}
+
 module.exports = Object.assign(
   {
     optionalRequire,
-    parseEnv
+    parseEnv,
+    ejectBabelRcClient,
+    ejectBabelRcServer
   },
   utils
 );

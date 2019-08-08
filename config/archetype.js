@@ -25,7 +25,30 @@ const webpackConfigSpec = {
 const babelConfigSpec = {
   enableTypeScript: parseEnv("ENABLE_TYPESCRIPT", false, "boolean"),
   enableDynamicImport: parseEnv("ENABLE_DYNAMIC_IMPORT", true, "boolean"),
+  enableFlow: { env: "ENABLE_BABEL_FLOW", default: true },
   // require the @flow directive in source to enable FlowJS type stripping
   flowRequireDirective: parseEnv("FLOW_REQUIRE_DIRECTIVE", false, "boolean"),
-  looseClassProps: parseEnv("BABEL_CLASS_PROPS_LOOSE", true, "boolean")
+  transformClassProps: { env: "BABEL_CLASS_PROPS", default: false },
+  looseClassProps: parseEnv("BABEL_CLASS_PROPS_LOOSE", true, "boolean"),
+  envTargets: parseEnv(
+    "BABEL_ENV_TARGETS",
+    {
+      default: {
+        ie: 8
+      },
+      node: process.versions.node.split(".")[0]
+    },
+    "json"
+  ),
+  target: parseEnv("ENV_TARGET", "default")
 };
+
+module.exports = {
+  webpack: Object.assign(webpackConfigSpec, userConfig.webpack),
+  babel: Object.assign(babelConfigSpec, userConfig.babel)
+};
+
+module.exports.babel.hasMultiTargets =
+  Object.keys(module.exports.babel.envTargets)
+    .sort()
+    .join(",") !== "default,node";

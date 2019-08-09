@@ -1,6 +1,6 @@
 "use strict";
 const Path = require("path");
-const { optionalRequire, parseEnv } = require("./utils");
+const { optionalRequire, parseEnv, AppMode } = require("./utils");
 const userConfig = Object.assign({}, optionalRequire(Path.resolve("archetype/config")));
 
 const defaultOptimizeCssOptions = {
@@ -12,13 +12,19 @@ const defaultOptimizeCssOptions = {
 const webpackConfigSpec = {
   devHostname: parseEnv("WEBPACK_DEV_HOST", "localhost"),
   devPort: parseEnv("WEBPACK_DEV_PORT", 2992, "number"),
+  cdnProtocol: parseEnv("WEBPACK_DEV_CDN_PROTOCOL", null),
+  cdnHostname: parseEnv("WEBPACK_DEV_CDN_HOST", null),
+  cdnPort: parseEnv("WEBPACK_DEV_CDN_PORT", 0, "number"),
   https: parseEnv("WEBPACK_DEV_HTTPS", false, "boolean"),
   cssModuleSupport: parseEnv("CSS_MODULE_SUPPORT", true, "boolean"),
   enableBabelPolyfill: parseEnv("ENABLE_BABEL_POLYFILL", false, "boolean"),
   enableHotModuleReload: parseEnv("ENABLE_HOT_MODULE_RELOAD", true, "boolean"),
+  enableNodeSourcePlugin: parseEnv("ENABLE_NODESOURCE_PLUGIN", false, "boolean"),
   woffFontInlineLimit: parseEnv("WODD_FONT_INLINE_LIMIT", 1000, "number"),
   enableShortenCSSNames: parseEnv("ENABLE_SHORTEN_CSS_NAMES", false, "boolean"),
+  enableWarningsOverlay: parseEnv("WEBPACK_DEV_WARNINGS_OVERLAY", true, "boolean"),
   optimizeCSSOptions: parseEnv("OPTIMIZE_CSS_OPTIONS", defaultOptimizeCssOptions, "json"),
+  preserveSymlinks: parseEnv("WEBPACK_PRESERVE_SYMLINKS",  false, "boolean"),
   minify: parseEnv("WEBPACK_MINIFY", true, "boolean")
 };
 
@@ -45,7 +51,8 @@ const babelConfigSpec = {
 
 module.exports = {
   webpack: Object.assign(webpackConfigSpec, userConfig.webpack),
-  babel: Object.assign(babelConfigSpec, userConfig.babel)
+  babel: Object.assign(babelConfigSpec, userConfig.babel),
+  AppMode
 };
 
 module.exports.babel.hasMultiTargets =

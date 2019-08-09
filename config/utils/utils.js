@@ -9,8 +9,8 @@ const Path = require("path");
  * @param {*} pathType: what the result path type, `0 => FILE`, `1 => DIR` or `2 => BOTH`, default: `0` means only include file in the result
  * @returns {files: [*], dirs: [*]}
  */
-function getAllPaths(path, needPath = true, level = -2, pathType = 0) {
-  const paths = {files: [], dirs: []};
+function getAllPaths(path, needPath = true, pathType = 0, level = -2) {
+  const paths = { files: [], dirs: [] };
   _getAllPathsHelper(path, paths, level, needPath, pathType);
   return paths;
 }

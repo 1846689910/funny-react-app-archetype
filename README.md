@@ -1,1 +1,33 @@
 # funny-react-app-archetype
+
+## Introduction
+
+`funny-react-app-archetype` is an archetype of react app configuration, including babel and webpack.
+
+## Usage
+
+`src/client/.babelrc.js`:
+
+```js
+module.exports = {
+  extends: "funny-react-app-archetype/config/babel/babelrc-client"
+};
+```
+
+`src/server/.babelrc.js`:
+
+```js
+module.exports = {
+  extends: "funny-react-app-archetype/config/babel/babelrc-server"
+};
+```
+
+`webpack.config.js`:
+```js
+module.exports = require("funny-react-app-archetype/config/webpack/webpack.config");
+```
+
+`webpack.config.dev.js`:
+```js
+module.exports = require("funny-react-app-archetype/config/webpack/webpack.config.dev");
+```

@@ -2,7 +2,7 @@ const Path = require("path");
 const babelLoader = require.resolve("babel-loader");
 const archetype = require("../../archetype");
 const { AppMode } = require("../../utils");
-module.exports = function(options) {
+module.exports = function(options = {}) {
   const clientVendor = Path.join(AppMode.src.client.dir, "vendor/");
   const babelExclude = x => {
     if (x.includes("node_modules")) return true;
@@ -20,7 +20,7 @@ module.exports = function(options) {
       loader: babelLoader,
       options: Object.assign(
         { cacheDirectory: Path.resolve(".etmp/babel-loader") },
-        options && options.babel
+        options.babel
       )
     }
   };

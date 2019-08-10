@@ -52,7 +52,8 @@ const babelConfigSpec = {
 module.exports = {
   webpack: Object.assign(webpackConfigSpec, userConfig.webpack),
   babel: Object.assign(babelConfigSpec, userConfig.babel),
-  AppMode
+  AppMode,
+  dir: Path.dirname(__dirname)
 };
 
 module.exports.babel.hasMultiTargets =

@@ -2,25 +2,22 @@
 
 const Fs = require("fs");
 const _ = require("lodash");
-const { optionalRequire } = require("../../utils");
 const Path = require("path");
 const archetype = require("../../archetype");
 const logger = require("../../utils/color-logger");
 const AppMode = archetype.AppMode;
 
 function makeEntryPartial() {
+
   const partial = {
     context: Path.resolve(AppMode.src.client.dir)
   };
-
 
   function appEntry() {
     // look for src/client/app.js or src/client/app.jsx or src/client/app.tsx
     const entries = ["./app.js", "./app.jsx", "./app.tsx"];
     const entry = entries.find(f => Fs.existsSync(Path.join(partial.context, f))) || "./app.jsx";
-    logger.info(
-      `Default to single app entry point using ${entry} under context ${partial.context}`
-    );
+    logger.info(`Default to single app entry point using ${entry} under context ${partial.context}`);
 
     return entry;
   }
@@ -57,7 +54,7 @@ function makeEntryPartial() {
     }
     return entry;
   }
-
+  
   partial.entry = makeEntry();
 
   return partial;

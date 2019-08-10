@@ -24,28 +24,26 @@ function parseEnv(env, defaultValue, envType = "string") {
   return val || defaultValue;
 }
 
-const getExistingPath = p => Fs.existsSync(p) && p;
-
 function getAppMode() {
   const root = Path.resolve();
   return {
     dir: root,
     src: {
-      dir: getExistingPath(Path.join(root, "src")),
+      dir: Path.join(root, "src"),
       client: {
-        dir: getExistingPath(Path.join(root, "src/client"))
+        dir: Path.join(root, "src/client")
       },
       server: {
-        dir: getExistingPath(Path.join(root, "src/server"))
+        dir: Path.join(root, "src/server")
       }
     },
     lib: {
-      dir: getExistingPath(Path.join(root, "lib")),
+      dir: Path.join(root, "lib"),
       client: {
-        dir: getExistingPath(Path.join(root, "lib/client"))
+        dir: Path.join(root, "lib/client")
       },
       server: {
-        dir: getExistingPath(Path.join(root, "lib/server"))
+        dir: Path.join(root, "lib/server")
       }
     }
   };
@@ -63,12 +61,35 @@ function ejectBabelRcServer(writePath) {
   Fs.writeFileSync(writePath, content);
 }
 
+function ejectWebpackConfig(writePath){
+  const webpackConfig = require("../webpack/webpack.config");
+  const config = Object.entries(webpackConfig).reduce((conf, [k, v]) => {
+    if (k === "module") {
+      v.rules = v.rules.map(x => {
+        x.test = x.test.toString();
+        return x;
+      });
+    } else if (k === "plugins") {
+      v = v.map(x => {
+        if (x.test) x.test = x.test.toString();
+        if (x.options && x.options.test) x.options.test = x.options.test.toString();
+        return x;
+      });
+    }
+    conf[k] = v;
+    return conf;
+  }, {});
+  const content = `module.exports = ${JSON.stringify(config, null, 2)};`;
+  Fs.writeFileSync(writePath, content);
+}
+
 module.exports = Object.assign(
   {
     optionalRequire,
     parseEnv,
     ejectBabelRcClient,
     ejectBabelRcServer,
+    ejectWebpackConfig,
     AppMode: getAppMode()
   },
   utils

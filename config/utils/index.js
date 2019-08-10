@@ -61,8 +61,13 @@ function ejectBabelRcServer(writePath) {
   Fs.writeFileSync(writePath, content);
 }
 
-function ejectWebpackConfig(writePath){
-  const webpackConfig = require("../webpack/webpack.config");
+/**
+ * disabled
+ * @param {*} writePath 
+ * @param {*} writeProd 
+ */
+function ejectWebpackConfig(writePath, writeProd = true){
+  const webpackConfig = require(`../webpack/webpack.config${writeProd ? "" : ".dev"}`);
   const config = Object.entries(webpackConfig).reduce((conf, [k, v]) => {
     if (k === "module") {
       v.rules = v.rules.map(x => {

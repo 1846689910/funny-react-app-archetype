@@ -11,7 +11,7 @@ const defaultOptimizeCssOptions = {
 
 const webpackConfigSpec = {
   devHostname: parseEnv("WEBPACK_DEV_HOST", "localhost"),
-  devPort: parseEnv("WEBPACK_DEV_PORT", 2992, "number"),
+  devPort: parseEnv("WEBPACK_DEV_PORT", 3000, "number"),
   cdnProtocol: parseEnv("WEBPACK_DEV_CDN_PROTOCOL", null),
   cdnHostname: parseEnv("WEBPACK_DEV_CDN_HOST", null),
   cdnPort: parseEnv("WEBPACK_DEV_CDN_PORT", 0, "number"),

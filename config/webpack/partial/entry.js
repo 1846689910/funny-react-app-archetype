@@ -15,8 +15,8 @@ function makeEntryPartial() {
 
   function appEntry() {
     // look for src/client/app.js or src/client/app.jsx or src/client/app.tsx
-    const entries = ["./app.js", "./app.jsx", "./app.tsx"];
-    const entry = entries.find(f => Fs.existsSync(Path.join(partial.context, f))) || "./app.jsx";
+    const entries = ["./js/app.js", "./js/app.jsx", "./js/app.tsx"];
+    const entry = entries.find(f => Fs.existsSync(Path.join(partial.context, f))) || "./js/app.jsx";
     logger.info(`Default to single app entry point using ${entry} under context ${partial.context}`);
 
     return entry;

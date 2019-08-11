@@ -46,7 +46,7 @@ const basePlugins = [
 
 const { BABEL_ENV, NODE_ENV } = process.env;
 
-const enableCssModule = process.env.ENABLE_CSS_MODULE === "true";
+const enableCssModule = process.env.ENABLE_CSS_MODULE === "true" || archetype.webpack.cssModuleSupport;
 const isProduction = (BABEL_ENV || NODE_ENV) === "production";
 const isTest = (BABEL_ENV || NODE_ENV) === "test";
 

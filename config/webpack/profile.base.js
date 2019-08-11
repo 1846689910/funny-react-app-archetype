@@ -6,6 +6,7 @@ const profile = {
     _entry: { order: 200 },
     _output: { order: 300 },
     _resolve: { order: 400 },
+    _html: { order: 500 },
     "_extract-style": { order: 2100 },
     _fonts: { order: 2200 },
     _images: { order: 2300 },

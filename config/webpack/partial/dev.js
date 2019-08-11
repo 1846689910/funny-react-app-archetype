@@ -46,8 +46,8 @@ module.exports = function() {
         protocol: cdnProtocol || "http",
         hostname: cdnHostname || "localhost",
         port: cdnPort !== HTTP_PORT ? cdnPort : "",
-        pathname: "/js/"
-      });
+        pathname: "/"
+      }); // TODO: /js/
     } else {
       const { https, devHostname, devPort } = archetype.webpack;
       // original dev assets URLs
@@ -55,15 +55,18 @@ module.exports = function() {
         protocol: https ? "https" : "http",
         hostname: devHostname,
         port: devPort,
-        pathname: "/js/"
-      });
+        pathname: "/"
+      }); // TODO: /js/
     }
   };
+  
+  const publicPath = makePublicPath();
+  devServerConfig.publicPath = publicPath;
 
   const config = {
     devServer: devServerConfig,
     output: {
-      publicPath: makePublicPath(),
+      publicPath,
       filename: "[name].bundle.dev.js"
     },
     devtool: "inline-source-map",

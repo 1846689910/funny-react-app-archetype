@@ -9,14 +9,18 @@ module.exports = function() {
       rules: [
         {
           _name: "image",
-          test: /\.(jpe?g|png|gif|svg)(\?\S*)?$/i,
+          test: /\.(jpe?g|png|gif|svg|ico)(\?\S*)?$/i,
           use: [
             {
               loader: fileLoader,
               options: {
-                limit: 10000
+                limit: 10000,
+                name(file) {
+                  if (file.includes("favicon.ico")) return "[name].[ext]";
+                  return "[hash].[ext]";
+                }
               }
-            },
+            }
             // isomorphicLoader
           ]
         }

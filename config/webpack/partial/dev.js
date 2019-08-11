@@ -1,4 +1,4 @@
-"use strict";
+"use strict";  // eslint-disable-line
 
 const Url = require("url");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -38,6 +38,7 @@ module.exports = function() {
   // Elsewhere in electrode-react-webapp, it detects webpack dev
   // mode and construct the CSS/JS bundle URLs separately.
   //
+  /* eslint-disable no-else-return */
   const makePublicPath = () => {
     // is any of the webpack.cdn* options defined
     const { cdnProtocol, cdnHostname, cdnPort } = archetype.webpack;

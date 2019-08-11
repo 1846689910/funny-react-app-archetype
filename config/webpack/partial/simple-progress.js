@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use strict";
 
 const webpack = require("webpack");
@@ -7,7 +8,7 @@ let currentRun = 0;
 let lastMsg;
 let noChangeCount = 0;
 
-/* eslint-disable max-statements */
+/* eslint-disable max-statements no-else-return */
 module.exports = function() {
   return {
     plugins: [

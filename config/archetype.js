@@ -9,6 +9,14 @@ const defaultOptimizeCssOptions = {
   }
 };
 
+const defaultHtmlWebpackPluginOptions = {
+  title: "funny-in-dev",
+  template: "./template/template.html",
+  filename: "index.html"
+};
+
+const optionsSpec = {};
+
 const webpackConfigSpec = {
   devHostname: parseEnv("WEBPACK_DEV_HOST", "localhost"),
   devPort: parseEnv("WEBPACK_DEV_PORT", 3000, "number"),
@@ -24,6 +32,7 @@ const webpackConfigSpec = {
   enableShortenCSSNames: parseEnv("ENABLE_SHORTEN_CSS_NAMES", false, "boolean"),
   enableWarningsOverlay: parseEnv("WEBPACK_DEV_WARNINGS_OVERLAY", true, "boolean"),
   optimizeCSSOptions: parseEnv("OPTIMIZE_CSS_OPTIONS", defaultOptimizeCssOptions, "json"),
+  htmlWebpackPluginOptions: parseEnv("HTML_WEBPACK_PLUGIN_OPTIONS", defaultHtmlWebpackPluginOptions, "json"),
   preserveSymlinks: parseEnv("WEBPACK_PRESERVE_SYMLINKS",  false, "boolean"),
   minify: parseEnv("WEBPACK_MINIFY", true, "boolean")
 };
@@ -52,6 +61,7 @@ const babelConfigSpec = {
 module.exports = {
   webpack: Object.assign(webpackConfigSpec, userConfig.webpack),
   babel: Object.assign(babelConfigSpec, userConfig.babel),
+  options: Object.assign(optionsSpec, userConfig.options),
   AppMode,
   dir: Path.dirname(__dirname)
 };

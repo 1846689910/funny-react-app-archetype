@@ -6,6 +6,7 @@ const { generateConfig } = require("../utils");
 function makeConfig() {
   const productionProfile = {
     partials: {
+      "_clean-build": { order: 9000 },
       "_prod-mode": { order: 10000 },
       _uglify: { order: 10200 },
       "_sourcemaps-remote": { order: 10400 },

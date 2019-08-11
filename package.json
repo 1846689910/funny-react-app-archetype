@@ -50,6 +50,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.20",
     "chai": "^4.0.0",
     "clean-css": "^4.2.1",
+    "clean-webpack-plugin": "^2.0.0",
     "core-js": "^3.2.0",
     "css-loader": "^2.0.0",
     "eslint": "^4.8.0",

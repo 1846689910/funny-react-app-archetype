@@ -45,9 +45,9 @@ function requirePartial(file) {
   return typeof partial === "function" ? partial() : partial;
 }
 
-function filterProps(plugin) {
-  delete plugin._name;
-  return plugin;
+function filterProps(rule) {
+  delete rule._name;
+  return rule;
 }
 
 /**
@@ -65,8 +65,8 @@ function generateConfig(profiles) {
 
   const config = partialFiles.reduce((conf, file) => {
     const { module, plugins, ...rest } = requirePartial(file);
-    if (module && module.rules) conf.module.rules.push(...module.rules);
-    if (plugins) conf.plugins.push(...plugins.map(x => filterProps(x)));
+    if (module && module.rules) conf.module.rules.push(...module.rules.map(x => filterProps(x)));
+    if (plugins) conf.plugins.push(...plugins);
     return merge(conf, rest);
   }, initConfig);
 

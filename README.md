@@ -31,3 +31,10 @@ module.exports = require("funny-react-app-archetype/config/webpack/webpack.confi
 ```js
 module.exports = require("funny-react-app-archetype/config/webpack/webpack.config.dev");
 ```
+
+`.eslintrc.js`:
+```js
+module.exports = {
+  extends: "./node_modules/funny-react-app-archetype/.eslintrc.js"
+};
+```

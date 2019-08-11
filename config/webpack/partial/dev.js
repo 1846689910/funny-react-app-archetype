@@ -62,6 +62,7 @@ module.exports = function() {
   
   const publicPath = makePublicPath();
   devServerConfig.publicPath = publicPath;
+  devServerConfig.port = archetype.webpack.devPort;
 
   const config = {
     devServer: devServerConfig,

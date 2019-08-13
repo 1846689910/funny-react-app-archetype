@@ -5,6 +5,8 @@ const {
   enableTypeScript,
   flowRequireDirective,
   enableFlow,
+  proposalDecorators,
+  legacyDecorators,
   transformClassProps,
   looseClassProps,
   enableDynamicImport
@@ -14,6 +16,12 @@ const basePlugins = [
   ...(enableDynamicImport
     ? ["@babel/plugin-syntax-dynamic-import", "@loadable/babel-plugin"]
     : [false]),
+  // allow decorators on method like mobx @computed.
+  // Note: This must go before @babel/plugin-proposal-class-properties
+  (enableTypeScript || proposalDecorators) && [
+    "@babel/plugin-proposal-decorators",
+    { legacy: legacyDecorators }
+  ],
   //
   // allow class properties. loose option compile to assignment expression instead
   // of Object.defineProperty.
@@ -46,7 +54,8 @@ const basePlugins = [
 
 const { BABEL_ENV, NODE_ENV } = process.env;
 
-const enableCssModule = process.env.ENABLE_CSS_MODULE === "true" || archetype.webpack.cssModuleSupport;
+const enableCssModule =
+  process.env.ENABLE_CSS_MODULE === "true" || archetype.webpack.cssModuleSupport;
 const isProduction = (BABEL_ENV || NODE_ENV) === "production";
 const isTest = (BABEL_ENV || NODE_ENV) === "test";
 

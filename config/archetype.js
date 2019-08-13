@@ -32,8 +32,12 @@ const webpackConfigSpec = {
   enableShortenCSSNames: parseEnv("ENABLE_SHORTEN_CSS_NAMES", false, "boolean"),
   enableWarningsOverlay: parseEnv("WEBPACK_DEV_WARNINGS_OVERLAY", true, "boolean"),
   optimizeCSSOptions: parseEnv("OPTIMIZE_CSS_OPTIONS", defaultOptimizeCssOptions, "json"),
-  htmlWebpackPluginOptions: parseEnv("HTML_WEBPACK_PLUGIN_OPTIONS", defaultHtmlWebpackPluginOptions, "json"),
-  preserveSymlinks: parseEnv("WEBPACK_PRESERVE_SYMLINKS",  false, "boolean"),
+  htmlWebpackPluginOptions: parseEnv(
+    "HTML_WEBPACK_PLUGIN_OPTIONS",
+    defaultHtmlWebpackPluginOptions,
+    "json"
+  ),
+  preserveSymlinks: parseEnv("WEBPACK_PRESERVE_SYMLINKS", false, "boolean"),
   minify: parseEnv("WEBPACK_MINIFY", true, "boolean")
 };
 
@@ -43,7 +47,9 @@ const babelConfigSpec = {
   enableFlow: { env: "ENABLE_BABEL_FLOW", default: true },
   // require the @flow directive in source to enable FlowJS type stripping
   flowRequireDirective: parseEnv("FLOW_REQUIRE_DIRECTIVE", false, "boolean"),
-  transformClassProps: { env: "BABEL_CLASS_PROPS", default: false },
+  proposalDecorators: parseEnv("BABEL_PROPOSAL_DECORATORS", false, "boolean"),
+  legacyDecorators: parseEnv("BABEL_LEGACY_DECORATORS", true, "boolean"),
+  transformClassProps: parseEnv("BABEL_CLASS_PROPS", false, "boolean"),
   looseClassProps: parseEnv("BABEL_CLASS_PROPS_LOOSE", true, "boolean"),
   envTargets: parseEnv(
     "BABEL_ENV_TARGETS",

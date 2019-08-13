@@ -58,20 +58,22 @@ const enableCssModule =
   process.env.ENABLE_CSS_MODULE === "true" || archetype.webpack.cssModuleSupport;
 const isProduction = (BABEL_ENV || NODE_ENV) === "production";
 const isTest = (BABEL_ENV || NODE_ENV) === "test";
+const mockProdInDev = process.env.MOCK_PROD_IN_DEV === "true";
 
 const plugins = basePlugins.concat(
   // test env
   isTest && ["babel-plugin-dynamic-import-node"],
   // production env
-  isProduction && [
-    "@babel/plugin-transform-react-constant-elements",
-    [
-      "babel-plugin-transform-react-remove-prop-types",
-      {
-        removeImport: true
-      }
-    ]
-  ],
+  isProduction &&
+    !mockProdInDev && [
+      "@babel/plugin-transform-react-constant-elements",
+      [
+        "babel-plugin-transform-react-remove-prop-types",
+        {
+          removeImport: true
+        }
+      ]
+    ],
   // css module support
   enableCssModule && [
     [

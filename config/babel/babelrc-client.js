@@ -58,6 +58,8 @@ const enableCssModule =
   process.env.ENABLE_CSS_MODULE === "true" || archetype.webpack.cssModuleSupport;
 const isProduction = (BABEL_ENV || NODE_ENV) === "production";
 const isTest = (BABEL_ENV || NODE_ENV) === "test";
+// mockProdInDev: used for webpack-dev-server to mock up run app prod locally
+// shall be used for disabling plugin or set up not applicable for prod mock up in dev server
 const mockProdInDev = process.env.MOCK_PROD_IN_DEV === "true";
 
 const plugins = basePlugins.concat(

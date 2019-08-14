@@ -2,6 +2,8 @@
 const Path = require("path");
 const { optionalRequire, parseEnv, AppMode } = require("./utils");
 const userConfig = Object.assign({}, optionalRequire(Path.resolve("archetype/config")));
+const { merge } = require("lodash");
+const dir = Path.dirname(__dirname);
 
 const defaultOptimizeCssOptions = {
   cssProcessorOptions: {
@@ -11,8 +13,19 @@ const defaultOptimizeCssOptions = {
 
 const defaultHtmlWebpackPluginOptions = {
   title: "funny-in-dev",
-  template: "./template/template.html",
-  filename: "index.html"
+  template: Path.join(dir, "template/template.html"),
+  filename: "index.html",
+  inject: false,
+  unbundled: {
+    pre: {
+      css: [],
+      js: []
+    },
+    post: {
+      css: [],
+      js: []
+    }
+  }
 };
 
 const optionsSpec = {};
@@ -65,11 +78,11 @@ const babelConfigSpec = {
 };
 
 module.exports = {
-  webpack: Object.assign(webpackConfigSpec, userConfig.webpack),
-  babel: Object.assign(babelConfigSpec, userConfig.babel),
-  options: Object.assign(optionsSpec, userConfig.options),
+  webpack: merge({}, webpackConfigSpec, userConfig.webpack),
+  babel: merge({}, babelConfigSpec, userConfig.babel),
+  options: merge({}, optionsSpec, userConfig.options),
   AppMode,
-  dir: Path.dirname(__dirname)
+  dir
 };
 
 module.exports.babel.hasMultiTargets =

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%=htmlWebpackPlugin.options.title%></title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!--pre-unbundled-css-->
+    <%=htmlWebpackPlugin.options.unbundled.pre.css.join("")%>
+    <!--css-->
+    <% for(var i=0; i < htmlWebpackPlugin.files.css.length; i++) {%>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[i] %>" />
+    <% } %>
+    <!--post-unbundled-css-->
+    <%=htmlWebpackPlugin.options.unbundled.post.css.join("")%>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!--pre-unbundled-js-->
+    <%=htmlWebpackPlugin.options.unbundled.pre.js.join("")%>
+    <!--js-->
+    <% for(var i=0; i < htmlWebpackPlugin.files.js.length; i++) {%>
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[i] %>"></script>
+    <% } %>
+    <!--post-unbundled-js-->
+    <%=htmlWebpackPlugin.options.unbundled.post.js.join("")%>
+  </body>
+</html>

@@ -15,6 +15,7 @@ const defaultHtmlWebpackPluginOptions = {
   title: "funny-in-dev",
   template: Path.join(dir, "template/template.html"),
   filename: "index.html",
+  inject: false,
   unbundled: {
     pre: {
       css: [],

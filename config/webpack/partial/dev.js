@@ -1,4 +1,4 @@
-"use strict";  // eslint-disable-line
+"use strict"; // eslint-disable-line
 
 const Url = require("url");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -10,12 +10,18 @@ const devProtocol = archetype.webpack.https ? "https://" : "http://";
 
 module.exports = function() {
   const devServerConfig = {
+    historyApiFallback: {
+      rewrites: [ // TODO: could setup api rewrites here. 
+        { from: /^\/$/, to: "/js/landing.html" } // after `publicPath` set to /js/, the index page, needs to be retrieved under /
+      ]
+    },
     hot: archetype.webpack.enableHotModuleReload,
     overlay: {
       errors: true,
       warnings: archetype.webpack.enableWarningsOverlay
     },
-    https: Boolean(archetype.webpack.https)
+    https: Boolean(archetype.webpack.https),
+    port: archetype.webpack.devPort
   };
 
   if (process.env.WEBPACK_DEV_HOST || process.env.WEBPACK_HOST) {
@@ -47,8 +53,8 @@ module.exports = function() {
         protocol: cdnProtocol || "http",
         hostname: cdnHostname || "localhost",
         port: cdnPort !== HTTP_PORT ? cdnPort : "",
-        pathname: "/"
-      }); // TODO: /js/
+        pathname: "/js/"
+      });
     } else {
       const { https, devHostname, devPort } = archetype.webpack;
       // original dev assets URLs
@@ -56,14 +62,13 @@ module.exports = function() {
         protocol: https ? "https" : "http",
         hostname: devHostname,
         port: devPort,
-        pathname: "/"
-      }); // TODO: /js/
+        pathname: "/js/"
+      });
     }
   };
-  
+
   const publicPath = makePublicPath();
   devServerConfig.publicPath = publicPath;
-  devServerConfig.port = archetype.webpack.devPort;
 
   const config = {
     devServer: devServerConfig,

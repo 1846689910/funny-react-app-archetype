@@ -20,7 +20,7 @@ module.exports = {
   output: {
     path: getOutputPath(),
     pathinfo: inspectpack, // Enable path information for inspectpack
-    publicPath: "/", // TODO: /js/
+    publicPath: "/js/",
     chunkFilename: archetype.babel.hasMultiTargets ? `${archetype.babel.target}.[hash].[name].js` : "[hash].[name].js",
     filename: getOutputFilename()
   }

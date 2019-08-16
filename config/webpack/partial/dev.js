@@ -12,7 +12,7 @@ module.exports = function() {
   const devServerConfig = {
     historyApiFallback: {
       rewrites: [ // TODO: could setup api rewrites here. 
-        { from: /^\/$/, to: "/js/landing.html" } // after `publicPath` set to /js/, the index page, needs to be retrieved under /
+        { from: /^\/$/, to: "/js/index.html" } // after `publicPath` set to /js/, the index page, needs to be retrieved under /
       ]
     },
     hot: archetype.webpack.enableHotModuleReload,

@@ -1,16 +1,21 @@
 {
   "name": "funny-react-app-archetype",
-  "version": "0.0.13",
-  "description": "in dev",
+  "version": "1.0.0",
+  "description": "react app config archetype",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint config/**/*.js[x] archetype/**/*.js[x]"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/1846689910/funny-react-app-archetype.git"
   },
-  "keywords": [],
+  "keywords": [
+    "webpack",
+    "babel",
+    "react"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -61,6 +66,7 @@
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
+    "jquery": "^3.4.1",
     "jsonfile": "^5.0.0",
     "less": "^3.9.0",
     "less-loader": "5.0.0",

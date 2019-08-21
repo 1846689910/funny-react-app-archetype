@@ -2,7 +2,7 @@
 const Path = require("path");
 const { optionalRequire, parseEnv, AppMode } = require("./utils");
 const userConfig = Object.assign({}, optionalRequire(Path.resolve("archetype/config")));
-const { merge } = require("lodash");
+const merge = require("lodash/merge");
 const dir = Path.dirname(__dirname);
 
 const defaultOptimizeCssOptions = {

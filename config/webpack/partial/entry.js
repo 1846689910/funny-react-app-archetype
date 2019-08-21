@@ -1,7 +1,6 @@
 "use strict";
 
 const Fs = require("fs");
-const _ = require("lodash");
 const Path = require("path");
 const archetype = require("../../archetype");
 const logger = require("../../utils/color-logger");
@@ -43,7 +42,7 @@ function makeEntryPartial() {
       const runtime = "regenerator-runtime/runtime";
       if (Array.isArray(entry)) {
         entry = { main: [coreJs, runtime, ...entry] };
-      } else if (_.isObject(entry)) {
+      } else if (typeof entry === "object") {
         entry = Object.entries(entry).reduce((prev, [k, v]) => {
           prev[k] = [coreJs, runtime].concat(v);
           return prev;

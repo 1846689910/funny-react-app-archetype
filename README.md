@@ -38,3 +38,12 @@ module.exports = {
   extends: "./node_modules/funny-react-app-archetype/.eslintrc.js"
 };
 ```
+
+## Overwrite
+
+To overwrite `optimization.splitChunks`:
+```js
+const { splitChunks } = require("funny-react-app-archetype/config/webpack/partial/split-chunks.js")().optimization;
+const config = require("funny-react-app-archetype/config/webpack/webpack.config");
+config.optimization.splitChunks = Object.assign({}, splitChunks, {/* User Defined Options */});
+```

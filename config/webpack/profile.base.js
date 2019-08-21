@@ -12,6 +12,7 @@ const profile = {
     _images: { order: 2300 },
     _stats: { order: 2400 },
     _loadable: { order: 2700 },
+    "_split-chunks": { order: 2800 },
     _node: { order: 30000 }
   }
 };

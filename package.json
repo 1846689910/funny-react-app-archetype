@@ -1,7 +1,7 @@
 {
   "name": "funny-react-app-archetype",
-  "version": "0.0.13",
-  "description": "in dev",
+  "version": "1.0.0",
+  "description": "react app config archetype",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/1846689910/funny-react-app-archetype.git"
   },
-  "keywords": [],
+  "keywords": [
+    "webpack",
+    "babel",
+    "react"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {

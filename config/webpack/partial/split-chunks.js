@@ -1,13 +1,6 @@
 "use strict";  // eslint-disable-line
 
 module.exports = function() {
-  /**
-   * to overwrite:
-   * const { splitChunks } = require("funny-react-app-archetype/config/webpack/partial/split-chunks.js")().optimization;
-   * const config = require("funny-react-app-archetype/config/webpack/webpack.config");
-   * config.optimization.splitChunks = Object.assign({}, splitChunks, {...});
-   * 
-   */
   return {
     optimization: {
       splitChunks: {

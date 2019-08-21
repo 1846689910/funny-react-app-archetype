@@ -1,6 +1,6 @@
 const Fs = require("fs");
 const Path = require("path");
-const { merge } = require("lodash");
+const merge = require("lodash/merge");
 
 /**
  * @description: recursively get all paths within the given path

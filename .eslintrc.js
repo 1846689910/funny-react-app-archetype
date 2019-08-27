@@ -19,7 +19,7 @@ module.exports = {
   rules: {
     "no-undef": 2,
     semi: 2,
-    strict: 2,
+    strict: 0,
     quotes: 1,
     indent: [2, 2, { SwitchCase: 1 }],
     "no-use-before-define": [2, "nofunc"],

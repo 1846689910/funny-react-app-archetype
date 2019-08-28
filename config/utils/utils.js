@@ -2,6 +2,7 @@ const Fs = require("fs");
 const Path = require("path");
 const merge = require("lodash/merge");
 const Container = require("./Container");
+const ActionWatcher = require("./ActionWatcher");
 
 /**
  * @description: recursively get all paths within the given path
@@ -89,5 +90,6 @@ function generateConfig(profiles) {
 module.exports = {
   getAllPaths,
   generateConfig,
-  Container
+  Container,
+  ActionWatcher
 };

@@ -1,6 +1,6 @@
 {
   "name": "funny-react-app-archetype",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react app config archetype",
   "main": "index.js",
   "scripts": {

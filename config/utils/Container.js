@@ -17,7 +17,7 @@ class Container {
     if (this._map.has(k)) this._weakMap.set(this._map.get(k), props);
   };
   setVProps = (v, props) => {
-    if (new Set(this._map.values()).has(v)) this._weakMap.set(v, props);
+    if (this._weakMap.has(v)) this._weakMap.set(v, props);
   };
   getVByK = k => this._map.get(k);
   getPropsByK = k => this._weakMap.get(this._map.get(k));

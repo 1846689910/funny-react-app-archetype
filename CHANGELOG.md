@@ -13,7 +13,7 @@
 
 # 2019-09-12
 
-## Unreleased
+## [1.0.2](https://github.com/1846689910/funny-react-app-archetype/commit/b34a19ec5d5c62bd0656daee6281706a6a705e1e)
 ### Added
 - Added `LICENSE` file
 - Supplement `CHANGELOG.md`

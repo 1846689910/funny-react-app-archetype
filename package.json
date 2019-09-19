@@ -1,6 +1,6 @@
 {
   "name": "funny-react-app-archetype",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "react app config archetype",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,9 @@
     "url": "https://github.com/1846689910/funny-react-app-archetype/issues"
   },
   "homepage": "https://github.com/1846689910/funny-react-app-archetype#readme",
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
@@ -37,6 +40,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.6.0",
     "@loadable/babel-plugin": "^5.10.0",
     "@loadable/webpack-plugin": "^5.7.1",
     "acorn": "^6.0.5",
@@ -71,7 +75,7 @@
     "less": "^3.9.0",
     "less-loader": "5.0.0",
     "mini-css-extract-plugin": "^0.8.0",
-    "mocha": "^4.0.0",
+    "mocha": "^6.2.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-import": "^12.0.1",

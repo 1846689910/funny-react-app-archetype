@@ -10,6 +10,16 @@
 ### Removed
 - Removed ...
  -->
+# 2019-09-16
+
+#### [1.0.3](https://github.com/1846689910/funny-react-app-archetype/commit/4068d5d5737814af19a532a54b27de0e916b2590)
+
+### Added
+- Add `@babel/runtime`
+### Changed
+- Update `mocha` version
+- node engines notification
+### Removed
 
 # 2019-09-12
 

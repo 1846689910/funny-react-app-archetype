@@ -12,7 +12,7 @@
  -->
 # 2019-09-16
 
-#### [1.0.3](https://github.com/1846689910/funny-react-app-archetype/commit/4068d5d5737814af19a532a54b27de0e916b2590)
+#### [1.0.3](https://github.com/1846689910/funny-react-app-archetype/commit/0e377b7bad9f99b66c84ce03da3565f187b2c42a)
 
 ### Added
 - Add `@babel/runtime`

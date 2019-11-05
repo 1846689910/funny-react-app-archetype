@@ -10,6 +10,15 @@
 ### Removed
 - Removed ...
  -->
+ # 2019-11-04
+
+#### [1.0.4](https://github.com/1846689910/funny-react-app-archetype/commit/4657fd66fdcf1ac21632aadff835781ad87bafd2)
+
+### Removed
+- remove `ActionWatcher`
+- remove `getAllPaths`
+- remove `Container`
+
 # 2019-09-16
 
 #### [1.0.3](https://github.com/1846689910/funny-react-app-archetype/commit/0e377b7bad9f99b66c84ce03da3565f187b2c42a)

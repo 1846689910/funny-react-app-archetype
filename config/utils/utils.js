@@ -1,6 +1,5 @@
 const Path = require("path");
 const merge = require("lodash/merge");
-const ActionWatcher = require("./ActionWatcher");
 
 function requirePartial(file) {
   const partial = require(file);
@@ -39,6 +38,5 @@ function generateConfig(profiles) {
 }
 
 module.exports = {
-  generateConfig,
-  ActionWatcher
+  generateConfig
 };

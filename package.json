@@ -1,6 +1,6 @@
 {
   "name": "funny-react-app-archetype",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "react app config archetype",
   "main": "index.js",
   "scripts": {
@@ -70,7 +70,6 @@
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
-    "jquery": "^3.4.1",
     "jsonfile": "^5.0.0",
     "less": "^3.9.0",
     "less-loader": "5.0.0",

@@ -10,6 +10,13 @@
 ### Removed
 - Removed ...
  -->
+  # 2019-11-05
+
+#### [1.0.5](https://github.com/1846689910/funny-react-app-archetype/commit/14041d33d00284d550799644f80aab64f36a713a)
+
+### Changed
+- Update webpack dev server route match in `partial/dev`
+
  # 2019-11-04
 
 #### [1.0.4](https://github.com/1846689910/funny-react-app-archetype/commit/4657fd66fdcf1ac21632aadff835781ad87bafd2)
